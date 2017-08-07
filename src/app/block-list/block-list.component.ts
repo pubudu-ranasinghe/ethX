@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Block } from "./block.model";
+import { BlockListService } from "./block-list.service";
 
 @Component({
   selector: 'app-block-list',
   templateUrl: './block-list.component.html',
-  styleUrls: ['./block-list.component.scss']
+  styleUrls: ['./block-list.component.scss'],
+  providers: [BlockListService]
 })
 export class BlockListComponent implements OnInit {
   blocks: Block[];
 
-  constructor() { 
-    this.blocks = [
-      new Block(2345, '1minago', 34, 'miner', '0x3e', 523),
-      new Block(2346, '2minago', 34, 'miner', '0x3e', 523),
-      new Block(2347, '3minago', 34, 'miner', '0x3e', 523)
-    ]
+  constructor(private blockListService: BlockListService) { 
   }
 
   ngOnInit() {
+    this.blockListService.getBlocks().then(result => this.blocks = result);
   }
 
 }
