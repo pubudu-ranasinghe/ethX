@@ -13,33 +13,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a href="#">3243</a></td>
-          <td>23 seconds ago</td>
-          <td>145</td>
-          <td><a href="#">EthMiner</a></td>
-          <td>0.532kB</td>
-        </tr>
-        <tr>
-          <td><a href="#">3243</a></td>
-          <td>23 seconds ago</td>
-          <td>145</td>
-          <td><a href="#">EthMiner</a></td>
-          <td>0.532kB</td>
-        </tr>
-        <tr>
-          <td><a href="#">3243</a></td>
-          <td>23 seconds ago</td>
-          <td>145</td>
-          <td><a href="#">EthMiner</a></td>
-          <td>0.532kB</td>
-        </tr>
-        <tr>
-          <td><a href="#">3243</a></td>
-          <td>23 seconds ago</td>
-          <td>145</td>
-          <td><a href="#">EthMiner</a></td>
-          <td>0.532kB</td>
+        <tr *ngFor="let block of blocks">
+          <td>{{ block.height }}</td>
+          <td>{{ block.timestamp }}</td>
+          <td>{{ block.transactions }}</td>
+          <td>{{ block.miner }}</td>
+          <td>{{ block.size }}</td>
         </tr>
       </tbody>
     </table>
