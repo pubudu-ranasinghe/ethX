@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Block } from "./block.model";
 import { BlockListService } from "./block-list.service";
 
@@ -9,13 +9,25 @@ import { BlockListService } from "./block-list.service";
   providers: [BlockListService]
 })
 export class BlockListComponent implements OnInit {
-  blocks: Block[];
+  public blocks: Array<Block> = [];
 
   constructor(private blockListService: BlockListService) { 
+    // this.blocks.push(new Block(2345, '1minago', 34, 'miner', '0x3e', 523));
   }
 
   ngOnInit() {
-    this.blockListService.getBlocks().then(result => this.blocks = result);
+    // let sub = this.blockListService.data.subscribe(
+    //   // value => console.log(value)
+    // )
+    this.blockListService.getB2().subscribe(
+      v => {
+        this.blocks.push(new Block(2345, '1minago', 34, 'miner', '0x3e', 523));
+        console.log(v);
+      },
+      // v => this.blocks.push(new Block(2345, '1minago', 34, 'miner', '0x3e', 523)),
+      e => console.log(e),
+      () => console.log('finished')
+    )
   }
 
 }

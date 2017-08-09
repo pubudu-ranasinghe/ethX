@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BlockListComponent } from './block-list/block-list.component';
+import { Web3Service } from "./web3.service";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { BlockListComponent } from './block-list/block-list.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [Web3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
