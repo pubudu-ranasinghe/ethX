@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Transactions</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Hash</th>
+          <th>Block</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let txn of txns">
+          <td><a routerLink="/block/{{ txn.hash }}">{{ txn.hash }}</a></td>
+          <td>{{ txn.block }}</td>
+          <td>{{ txn.from }}</td>
+          <td>{{ txn.to }}</td>
+          <td>{{ txn.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

@@ -7,16 +7,23 @@ import { Web3Service } from "./shared/web3.service";
 import { RouterModule } from "@angular/router";
 import { BlockListComponent } from './blocks/block-list/block-list.component';
 import { BlockComponent } from './blocks/block/block.component';
+import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlockListComponent,
-    BlockComponent
+    BlockComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/blocks',
+        pathMatch: 'full'
+      },
       {
         path: 'blocks',
         component: BlockListComponent
@@ -26,9 +33,8 @@ import { BlockComponent } from './blocks/block/block.component';
         component: BlockComponent
       },
       {
-        path: '',
-        redirectTo: '/blocks',
-        pathMatch: 'full'
+        path: 'transactions',
+        component: TransactionListComponent
       }
     ])
   ],
