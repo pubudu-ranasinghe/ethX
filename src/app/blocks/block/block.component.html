@@ -1,0 +1,35 @@
+<section class="hero is-primary">
+  <div class="hero-body" *ngIf="block">
+    <div class="container">
+      <h1 class="title">Block #{{ block.height }}</h1>
+      <h2 class="subtitle">Hash {{ block.hash }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" *ngIf="block">
+  <div class="container">
+    <table class="table">
+      <tr>
+        <td>Number of Transactions</td>
+        <td class="has-text-right">{{ block.transactions }}</td>
+      </tr>
+      <tr>
+        <td>Height</td>
+        <td class="has-text-right">{{ block.height }}</td>
+      </tr>
+      <tr>
+        <td>Timestamp</td>
+        <td class="has-text-right">{{ block.timestamp }}</td>
+      </tr>
+      <tr>
+        <td>Mined By</td>
+        <td class="has-text-right">{{ block.miner }}</td>
+      </tr>
+      <tr>
+        <td>Size(bytes)</td>
+        <td class="has-text-right">{{ block.size }}</td>
+      </tr>
+    </table>
+  </div>
+</section>

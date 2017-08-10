@@ -2,12 +2,12 @@
   <div class="container">
 
     <div class="navbar-brand">
-      <a href="/" class="navbar-item">ethX</a>
+      <a routerLink="/" class="navbar-item">ethX</a>
     </div>
 
     <div class="navbar-menu">
       <div class="navbar-end">
-        <a href="#" class="navbar-item">
+        <a routerLink="/blocks" class="navbar-item">
           <span class="emoji">🔨</span>
           Blocks
         </a>
@@ -25,4 +25,4 @@
   </div>
 </nav>
 
-<app-block-list></app-block-list>
+<router-outlet></router-outlet>

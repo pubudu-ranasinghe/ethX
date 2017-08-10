@@ -4,7 +4,7 @@ import Web3 from 'web3';
 @Injectable()
 export class Web3Service {
   private web3Instance: any;
-  private WEB3_DELAY = 0;
+  private WEB3_DELAY = 1000;
 
   constructor() {
   }
