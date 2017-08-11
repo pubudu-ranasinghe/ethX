@@ -17,7 +17,8 @@ export class BlocksService {
             result.transactions.length,
             result.miner,
             result.hash,
-            result.size);
+            result.size,
+            result.transactions);
           resolve(b);
         })
       })
@@ -50,7 +51,8 @@ export class BlocksService {
       response.transactions.length,
       response.miner,
       response.hash,
-      response.size);
+      response.size,
+      response.transactions);
   }
 
 }

@@ -4,7 +4,7 @@ import Web3 from 'web3';
 @Injectable()
 export class Web3Service {
   private web3Instance: any;
-  private WEB3_DELAY = 1000;
+  private WEB3_DELAY = 0;
 
   constructor() {
   }
@@ -16,7 +16,7 @@ export class Web3Service {
         this.web3 = new Web3(window['web3'].currentProvider);
       } else {
         this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:30001"));
-        console.log("need to connect to node");
+        console.log("connecting to local node");
       }
       if(!this.web3.isConnected())
         callback("Didn't connect", null);

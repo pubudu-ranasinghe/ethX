@@ -5,6 +5,7 @@ export class Block {
   miner: string;
   hash: string;
   size: number;
+  txns: Array<string>;
 
   constructor(
   height: number,
@@ -12,7 +13,8 @@ export class Block {
   transactions: number,
   miner: string,
   hash: string,
-  size: number
+  size: number,
+  txns: Array<string>
   ) {
     this.height = height;
     this.timestamp = timestamp;
@@ -20,5 +22,6 @@ export class Block {
     this.miner = miner;
     this.hash = hash;
     this.size = size;
+    this.txns = txns;
   }
 }

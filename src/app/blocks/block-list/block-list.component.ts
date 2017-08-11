@@ -11,8 +11,7 @@ import { BlocksService } from "./../shared/blocks.service";
 export class BlockListComponent implements OnInit {
   public blocks: Array<Block> = [];
 
-  constructor(private blocksService: BlocksService) { 
-  }
+  constructor(private blocksService: BlocksService) { }
 
   ngOnInit() {
     this.blocksService.getBlocks().then(
