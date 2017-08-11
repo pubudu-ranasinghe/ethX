@@ -8,21 +8,22 @@ import { RouterModule } from "@angular/router";
 import { BlockListComponent } from './blocks/block-list/block-list.component';
 import { BlockComponent } from './blocks/block/block.component';
 import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlockListComponent,
     BlockComponent,
-    TransactionListComponent
+    TransactionListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: '/blocks',
-        pathMatch: 'full'
+        component: HomeComponent
       },
       {
         path: 'blocks',
