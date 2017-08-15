@@ -9,16 +9,16 @@
           <th>Block</th>
           <th>From</th>
           <th>To</th>
-          <th>Value</th>
+          <th>Time</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let txn of txns">
-          <td><a routerLink="/block/{{ txn.hash }}">{{ txn.hash }}</a></td>
-          <td>{{ txn.block }}</td>
-          <td>{{ txn.from }}</td>
-          <td>{{ txn.to }}</td>
-          <td>{{ txn.value }}</td>
+        <tr *ngFor="let txn of items | async">
+          <td><a routerLink="/block/{{ txn.hash }}">{{ txn.hash | slice:0:15 }}</a></td>
+          <td>{{ txn.blockNumber }}</td>
+          <td>{{ txn.from | slice:0:15 }}</td>
+          <td>{{ txn.to | slice:0:15 }}</td>
+          <td>{{ txn.timestamp }}</td>
         </tr>
       </tbody>
     </table>

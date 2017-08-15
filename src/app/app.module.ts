@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { environment } from "../environments/environment";
+
 import { Web3Service } from "./shared/web3.service";
 import { RouterModule } from "@angular/router";
 import { BlockListComponent } from './blocks/block-list/block-list.component';
@@ -20,6 +24,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     RouterModule.forRoot([
       {
         path: '',
