@@ -1,0 +1,46 @@
+<section class="hero is-primary">
+  <div class="hero-body" *ngIf="block">
+    <div class="container">
+      <h1 class="title">Transaction #{{ txn.hash }}</h1>
+    </div>
+  </div>
+</section>
+
+<section class="section" *ngIf="block">
+  <div class="container">
+    <table class="table">
+      <tr>
+        <td>Tx Hash</td>
+        <td class="has-text-right">{{ block.transactions }}</td>
+      </tr>
+      <tr>
+        <td>Block Number</td>
+        <td class="has-text-right">{{ block.height }}</td>
+      </tr>
+      <tr>
+        <td>Timestamp</td>
+        <td class="has-text-right">{{ block.timestamp }}</td>
+      </tr>
+      <tr>
+        <td>From</td>
+        <td class="has-text-right">{{ block.miner }}</td>
+      </tr>
+      <tr>
+        <td>To</td>
+        <td class="has-text-right">{{ block.size }}</td>
+      </tr>
+      <tr>
+        <td>Value</td>
+        <td class="has-text-right">{{ block.size }}</td>
+      </tr>
+      <tr>
+        <td>Nonce</td>
+        <td class="has-text-right">{{ block.size }}</td>
+      </tr>
+      <tr>
+        <td>Data</td>
+        <td class="has-text-right">{{ block.size }}</td>
+      </tr>
+    </table>
+  </div>
+</section>

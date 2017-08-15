@@ -1,2 +1,37 @@
-<app-transaction-list></app-transaction-list>
-<app-block-list></app-block-list>
+<div class="container">
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <p class="subtitle">Block</p>
+          <p class="title">#{{ chainHeight }}</p>
+        </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p class="subtitle">Network</p>
+        <p class="title">{{ networkId }}</p>
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-warning">
+        <p class="subtitle">Hashrate</p>
+        <p class="title">{{ hashRate }}</p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-thirds">
+        <h1 class="title">Transactions</h1>
+        <app-transaction-list></app-transaction-list>
+      </div>
+      <div class="column is-two-thirds">
+        <h1 class="title">Blocks</h1>
+        <app-block-list></app-block-list>
+      </div>
+    </div>
+  </div>
+</div>

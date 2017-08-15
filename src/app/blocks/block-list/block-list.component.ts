@@ -17,14 +17,9 @@ export class BlockListComponent implements OnInit {
   constructor(private blocksService: BlocksService, private db: AngularFireDatabase) { }
 
   ngOnInit() {
-    // this.blocksService.getBlocks().then(
-    //   blocks => {
-    //     this.blocks = blocks;
-    //   }
-    // )
     this.items = this.db.list('/blocks', {
       query: {
-        limitToLast: 20,
+        limitToLast: 10,
         orderByChild: 'number'
       }
     });

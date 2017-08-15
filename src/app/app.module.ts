@@ -13,6 +13,9 @@ import { BlockListComponent } from './blocks/block-list/block-list.component';
 import { BlockComponent } from './blocks/block/block.component';
 import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';
 import { HomeComponent } from './home/home.component';
+import { OrderByPipe } from 'angular-pipes/src/array/order-by.pipe';
+import { HumanTimePipe } from './shared/human-time.pipe';
+import { TransactionComponent } from './transactions/transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HomeComponent } from './home/home.component';
     BlockListComponent,
     BlockComponent,
     TransactionListComponent,
-    HomeComponent
+    HomeComponent,
+    OrderByPipe,
+    HumanTimePipe,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +48,10 @@ import { HomeComponent } from './home/home.component';
       {
         path: 'transactions',
         component: TransactionListComponent
+      },
+      {
+        path: 'transaction/:id',
+        component: TransactionComponent
       }
     ])
   ],

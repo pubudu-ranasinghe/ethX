@@ -1,27 +1,21 @@
-<section class="section">
-  <div class="container">
-    <h1 class="title">Blocks</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Height</th>
+      <th>Timestamp</th>
+      <th>Transactions</th>
+      <th>Mined by</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let block of items | async">
+      <td><a routerLink="/block/{{ block.number }}">{{ block.number }}</a></td>
+      <td>{{ block.timestamp | humanTime }}</td>
+      <td>{{ block.transactions != null ? block.transactions.length : 0 }}</td> 
+      <td>{{ block.miner | slice:0:15 }}</td>
+      <td>{{ block.size }}</td>
+    </tr>
+  </tbody>
+</table>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Height</th>
-          <th>Timestamp</th>
-          <th>Transactions</th>
-          <th>Mined by</th>
-          <th>Size</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let block of items | async">
-          <td><a routerLink="/block/{{ block.number }}">{{ block.number }}</a></td>
-          <td>{{ block.timestamp }}</td>
-           <td>{{ 0 }}</td> 
-          <td>{{ block.miner }}</td>
-          <td>{{ block.size }}</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-</section>
