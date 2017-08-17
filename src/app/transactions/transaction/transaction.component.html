@@ -1,45 +1,41 @@
 <section class="hero is-primary">
-  <div class="hero-body" *ngIf="block">
+  <div class="hero-body" *ngIf="transaction">
     <div class="container">
-      <h1 class="title">Transaction #{{ txn.hash }}</h1>
+      <h1 class="title">Transaction</h1>
     </div>
   </div>
 </section>
 
-<section class="section" *ngIf="block">
+<section class="section" *ngIf="transaction">
   <div class="container">
     <table class="table">
       <tr>
         <td>Tx Hash</td>
-        <td class="has-text-right">{{ block.transactions }}</td>
+        <td class="has-text-right">{{ transaction.hash }}</td>
       </tr>
       <tr>
-        <td>Block Number</td>
-        <td class="has-text-right">{{ block.height }}</td>
-      </tr>
-      <tr>
-        <td>Timestamp</td>
-        <td class="has-text-right">{{ block.timestamp }}</td>
+        <td>Gas</td>
+        <td class="has-text-right">{{ transaction.gas }}</td>
       </tr>
       <tr>
         <td>From</td>
-        <td class="has-text-right">{{ block.miner }}</td>
+        <td class="has-text-right">{{ transaction.from }}</td>
       </tr>
       <tr>
         <td>To</td>
-        <td class="has-text-right">{{ block.size }}</td>
+        <td class="has-text-right">{{ transaction.to }}</td>
       </tr>
       <tr>
         <td>Value</td>
-        <td class="has-text-right">{{ block.size }}</td>
+        <td class="has-text-right">{{ transaction.value }}</td>
       </tr>
       <tr>
         <td>Nonce</td>
-        <td class="has-text-right">{{ block.size }}</td>
+        <td class="has-text-right">{{ transaction.nonce }}</td>
       </tr>
       <tr>
         <td>Data</td>
-        <td class="has-text-right">{{ block.size }}</td>
+        <td class="has-text-right">{{ transaction.input }}</td>
       </tr>
     </table>
   </div>

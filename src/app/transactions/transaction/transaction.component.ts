@@ -1,25 +1,47 @@
 import { Component, OnInit } from '@angular/core';
+
 import { TransactionsService } from '../shared/transactions.service';
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+
 
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.scss'],
+
+  providers: [TransactionsService]
+
 })
 export class TransactionComponent implements OnInit {
+  transaction: Transaction;
 
-  constructor(private ts: TransactionsService, private db: AngularFireDatabase ) { }
+
+  constructor(
+  	private route: ActivatedRoute,
+    private location: Location,
+    private transacionsService: TransactionsService
+    ) { }
 
   ngOnInit() { 
-    this.db.list('/transactions', {
-        query: {
-          orderByChild: 'hash',
-          equalTo: '0x952ae3686cee3660a84363b2c4740b0762a4c3f846f6c614dd8d4a77e2e6b365'
-        }
-      }).subscribe(data => {
-        console.log(data);
-      })
+
+  	this.route.paramMap
+      .switchMap((params: ParamMap) => this.transacionsService.getTransaction(params.get('id')).then(function(transaction){return transaction;}))
+      .subscribe(transaction => {
+        // checkTransacion(transaction).bind(this);
+        this.transaction = transaction;
+        console.log(this.transaction);
+        //alert(this.transaction);
+      });
+
   }
 
+}
+
+function checkTransacion(transaction) {
+    if(transaction == undefined) {
+       window.setTimeout(checkTransacion, 100); /* this checks the transaction every 100 milliseconds*/
+    } else {
+      this.transaction = transaction;
+      return transaction;
+    }
 }
