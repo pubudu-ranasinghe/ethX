@@ -10,12 +10,16 @@
   <div class="container">
     <table class="table">
       <tr>
-        <td>Tx Hash</td>
+        <td>TXN Private Key</td>
         <td class="has-text-right">{{ transaction.hash }}</td>
       </tr>
       <tr>
-        <td>Gas</td>
-        <td class="has-text-right">{{ transaction.gas }}</td>
+        <td>Bock Hash</td>
+        <td class="has-text-right">{{ transaction.blockHash }}</td>
+      </tr>
+      <tr>
+        <td>Nonce</td>
+        <td class="has-text-right">{{ transaction.nonce }}</td>
       </tr>
       <tr>
         <td>From</td>
@@ -30,12 +34,12 @@
         <td class="has-text-right">{{ transaction.value }}</td>
       </tr>
       <tr>
-        <td>Nonce</td>
-        <td class="has-text-right">{{ transaction.nonce }}</td>
+        <td>Gas</td>
+        <td class="has-text-right">{{ transaction.gas }}</td>
       </tr>
       <tr>
-        <td>Data</td>
-        <td class="has-text-right">{{ transaction.input }}</td>
+        <td>Input</td>
+        <td class="has-text-right">{{ transaction.input | slice:0:15 }}</td>
       </tr>
     </table>
   </div>

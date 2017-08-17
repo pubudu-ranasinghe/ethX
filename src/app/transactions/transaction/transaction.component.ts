@@ -16,7 +16,7 @@ import Web3 from 'web3';
 })
 export class TransactionComponent implements OnInit {
   transactionService: TransactionsService;
-  transaction: any;
+  transaction: any = {};
   web3: any;
   contractAddress: string;
 
@@ -55,11 +55,11 @@ export class TransactionComponent implements OnInit {
       // })
       this.transacionsService.getTxnData(this.contractAddress).then(val => {
         this.transaction = val;
-        console.log(this.transaction.to)
-        this.transacionsService.getContractData(this.transaction.to).then(val => {
-          console.log(val._body)
-          this.transaction.value = JSON.stringify(val._body);
-        })
+        console.log(val.hash)
+        // this.transacionsService.getContractData(this.transaction.to).then(val => {
+        //   console.log(val._body)
+        //   this.transaction.value = JSON.stringify(val._body);
+        // })
       })
     });
 
