@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from "@angular/router";
-import { Location } from "@angular/common";
-import { TransactionsService } from "./../shared/transactions.service";
-import "rxjs/add/operator/switchMap";
-import { Transaction } from "./../shared/transaction.model";
+
+import { TransactionsService } from '../shared/transactions.service';
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 
 
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.scss'],
+
   providers: [TransactionsService]
+
 })
 export class TransactionComponent implements OnInit {
   transaction: Transaction;
+
 
   constructor(
   	private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class TransactionComponent implements OnInit {
         console.log(this.transaction);
         //alert(this.transaction);
       });
+
   }
 
 }

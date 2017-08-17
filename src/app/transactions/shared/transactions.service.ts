@@ -9,6 +9,7 @@ export class TransactionsService {
   constructor(
     private web3Service: Web3Service) { }
 
+
   private createTxnFromResponse(response: any): Transaction {
     return new Transaction(
       response.hash,
@@ -61,6 +62,7 @@ export class TransactionsService {
 //         })
 //       })
 //     })
+
   }
  
 }
