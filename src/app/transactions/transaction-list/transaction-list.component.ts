@@ -12,7 +12,6 @@ import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/databa
   providers: [TransactionsService, BlocksService]
 })
 export class TransactionListComponent implements OnInit {
-  public txns: Array<Transaction> = [];
   public items: FirebaseListObservable<any[]>;
 
   constructor(private transactionsService: TransactionsService, private db: AngularFireDatabase) { }
