@@ -42,5 +42,9 @@ export class Web3Service {
     this.web3Instance = web3;
   }
   
+  unlockAccountAddress(callback){
+
+  }
+
 
 }

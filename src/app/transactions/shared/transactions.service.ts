@@ -2,13 +2,43 @@ import { Injectable } from '@angular/core';
 import { Block } from "../../blocks/shared/block.model";
 import { Transaction } from "./transaction.model";
 import { Web3Service } from "./../../shared/web3.service";
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import {Http, Response} from '@angular/http';
+import {Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class TransactionsService {
+  transaction: any;
 
   constructor(
-    private web3Service: Web3Service) { }
+    private http: Http,
+    private web3Service: Web3Service,
+    private db: AngularFireDatabase) { }
 
+  
+  public getContractData(contractAddress): Promise<any> {
+    return new Promise((resolve => {
+      this.http.get('http://localhost:3001/v1/blockchain/contract/'+contractAddress).subscribe(val => {
+        resolve(val);
+      })
+
+    }))
+  }
+
+  public getTxnData(contractAddress): Promise<any> {
+    return new Promise((resolve => {
+      this.db.list('transactions', {
+        query: {
+          orderByChild: 'hash',
+          equalTo: contractAddress
+        }
+      }).subscribe((data) => {
+        this.transaction = data[0];
+        console.log(this.transaction);
+        resolve(this.transaction);
+      })
+    }))
+  }
 
   private createTxnFromResponse(response: any): Transaction {
     return new Transaction(

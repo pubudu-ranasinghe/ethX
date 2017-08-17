@@ -17,6 +17,8 @@ import { OrderByPipe } from 'angular-pipes/src/array/order-by.pipe';
 import { HumanTimePipe } from './shared/human-time.pipe';
 import { TransactionComponent } from './transactions/transaction/transaction.component';
 
+import { HttpModule }    from '@angular/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { TransactionComponent } from './transactions/transaction/transaction.com
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     RouterModule.forRoot([

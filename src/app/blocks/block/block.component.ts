@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { BlocksService } from "./../shared/blocks.service";
 import "rxjs/add/operator/switchMap";
@@ -21,12 +21,10 @@ export class BlockComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.route.paramMap
-    //   .switchMap((params: ParamMap) => this.blocksService.getBlock(+params.get('id')))
-    //   .subscribe(block => {
-    //     this.block = block
-    //     console.log(this.block);
-    //   });
+    this.route.params.subscribe((params: Params) => {
+        let userId = params['id'];
+        console.log(userId);
+      });
   }
 
 }
