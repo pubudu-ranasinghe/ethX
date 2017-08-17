@@ -11,7 +11,7 @@
   <div class="container">
     <table class="table">
       <tr>
-        <td>Number of Transactionsss</td>
+        <td>Number of Transactions</td>
         <td class="has-text-right">{{ block.transactions }}</td>
       </tr>
       <tr>
@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <td>Timestamp</td>
-        <td class="has-text-right">{{ block.timestamp }}</td>
+        <td class="has-text-right">{{ block.timestamp | humanTime }}</td>
       </tr>
       <tr>
         <td>Mined By</td>

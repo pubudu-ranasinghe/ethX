@@ -22,8 +22,10 @@ export class BlockComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-        let userId = params['id'];
-        console.log(userId);
+        let blockNum = +params['id'];
+        this.blocksService.getBlock(blockNum).then(block => {
+          this.block = block;
+        })
       });
   }
 
