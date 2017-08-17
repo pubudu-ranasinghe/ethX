@@ -19,7 +19,7 @@ export class TransactionListComponent implements OnInit {
   ngOnInit() {
     // this.txns.push(new Transaction('ox',1,'e','e','e',new BigNumber(23),new BigNumber(23),12,'22')) 
     
-    this.items = this.db.list('/transactions/hash', {
+    this.items = this.db.list('/transactions', {
       query: {
         limitToLast: 10,
         orderByChild: 'timestamp'
