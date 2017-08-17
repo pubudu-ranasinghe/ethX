@@ -21,12 +21,12 @@ export class BlockComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.blocksService.getBlock(+params.get('id')))
-      .subscribe(block => {
-        this.block = block
-        console.log(this.block);
-      });
+    // this.route.paramMap
+    //   .switchMap((params: ParamMap) => this.blocksService.getBlock(+params.get('id')))
+    //   .subscribe(block => {
+    //     this.block = block
+    //     console.log(this.block);
+    //   });
   }
 
 }

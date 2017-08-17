@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDRc2feaxe_E1Dza9XrYaWy_x5YFJPWpIg",
-    authDomain: "tracified-afc05.firebaseapp.com",
-    databaseURL: "https://tracified-afc05.firebaseio.com",
-    projectId: "tracified-afc05",
-    storageBucket: "tracified-afc05.appspot.com",
-    messagingSenderId: "491481623935"
+    apiKey: "AIzaSyDE2k6FbZg1Mlp8E8oxgiK4Snr20BCFSzA",
+    authDomain: "tracified-cc9e8.firebaseapp.com",
+    databaseURL: "https://tracified-cc9e8.firebaseio.com",
+    projectId: "tracified-cc9e8",
+    storageBucket: "tracified-cc9e8.appspot.com",
+    messagingSenderId: "780462977837"
   }
 };
