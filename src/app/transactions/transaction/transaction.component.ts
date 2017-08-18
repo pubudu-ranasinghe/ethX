@@ -53,46 +53,55 @@ function getDisplayData(data): any {
   if(d.farm) 
     return {
       title: d.farm.name,
+      image: '/assets/delivery-truck.png',
       details: [d.farm.address, d.farm.mobileNo]
     }
   if(d.seeding) 
     return {
       title: "Seeding",
+      image: '/assets/delivery-truck.png',
       details: [d.seeding.plotName, d.seeding.seedingDate, d.seeding.location]
     }
   if(d.plantation) 
     return {
       title: "Plantation",
+      image: '/assets/delivery-truck.png',
       details: [d.plantation.timestamp, d.plantation.fertilizerAmount, d.plantation.weedControl]
     }
   if(d.collection) 
     return {
       title: "Collection",
+      image: '/assets/delivery-truck.png',
       details: [d.collection.batchID, d.collection.storageCondition, d.collection.collectionDate, d.collection.barcode, d.collection.qualityOfHarvest]
     }
   if(d.transport) 
       return {
         title: "Transportation",
+        image: '/assets/delivery-truck.png',
         details: [d.transport.barcodes, d.transport.truckCondition, d.transport.timestamp]
       }
   if(d.washing) 
     return {
       title: "Washing Stage",
+      image: '/assets/delivery-truck.png',
       details: [d.washing.officerID, d.washing.cleanedYield, d.washing.phSensorID, d.washing.timestamp]
     }
   if(d.cleaning) 
     return {
       title: "Cleaning Stage",
+      image: '/assets/delivery-truck.png',
       details: [d.cleaning.cleaningFacilityName, d.cleaning.barcodes, d.cleaning.timestamp]
     }
   if(d.storage) 
     return {
       title: "Storage Stage",
+      image: '/assets/delivery-truck.png',
       details: [d.storage.rackNo, d.storage.temperature, d.storage.humidity, d.storage.barcodes]
     }
   if(d.packaging) 
     return {
       title: "Packaging Stage",
+      image: '/assets/delivery-truck.png',
       details: [d.packaging.orderID, d.packaging.packageType, d.packaging.timestamp, d.packaging.barcodes]
     }
   return null
