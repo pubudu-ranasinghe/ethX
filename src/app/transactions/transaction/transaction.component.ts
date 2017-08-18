@@ -5,6 +5,7 @@ import { TransactionsService } from '../shared/transactions.service';
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 import { Http } from '@angular/http';
 import Web3 from 'web3';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-transaction',
@@ -53,26 +54,39 @@ function getDisplayData(data): any {
   if(d.farm) 
     return {
       title: d.farm.name,
-      image: '/assets/delivery-truck.png',
-      details: [`address: ${d.farm.address}`, `contact: ${d.farm.mobileNo}`]
+      image: '/assets/farm.png',
+      details: [
+        `Address: ${d.farm.address}`, 
+        `Contact: ${d.farm.mobileNo}`]
     }
   if(d.seeding) 
     return {
       title: "Seeding",
-      image: '/assets/delivery-truck.png',
-      details: [`Plot: ${d.seeding.plotName}`, `Seeding Date: ${d.seeding.seedingDate}`, `Location: ${d.seeding.location}`]
+      image: '/assets/seeding.png',
+      details: [
+        `Plot: ${d.seeding.plotName}`, 
+        `Seeding Date: ${moment(d.seeding.seedingDate).format('MMM Do YY')}`, 
+        `Location: ${d.seeding.location}`]
     }
   if(d.plantation) 
     return {
       title: "Plantation",
-      image: '/assets/delivery-truck.png',
-      details: [`Plantation Date: ${d.plantation.timestamp}`, `Fertilizer Amount: ${d.plantation.fertilizerAmount}`, `Weed Control: ${d.plantation.weedControl}`]
+      image: '/assets/plantation.png',
+      details: [
+        `Plantation Date: ${moment(d.plantation.timestamp).format('MMM Do YY')}`, 
+        `Fertilizer Amount: ${d.plantation.fertilizerAmount}`, 
+        `Weed Control: ${d.plantation.weedControl}`]
     }
   if(d.collection) 
     return {
       title: "Collection",
-      image: '/assets/delivery-truck.png',
-      details: [`Batch ID: ${d.collection.batchID}`, `Storage Condition: ${d.collection.storageCondition}`, `Collection Date: ${d.collection.collectionDate}`, `Barcode: ${d.collection.barcode}`, `Harvest Quality: ${d.collection.qualityOfHarvest}`]
+      image: '/assets/harvest.png',
+      details: [
+        `Batch ID: ${d.collection.batchID}`, 
+        `Storage Condition: ${d.collection.storageCondition}`, 
+        `Collection Date: ${moment(d.collection.collectionDate).format('MMM Do YY')}`, 
+        `Barcode: ${d.collection.barcode}`, 
+        `Final Yield: ${d.collection.finalYield}`]
     }
   if(d.transport) 
       return {
@@ -81,31 +95,31 @@ function getDisplayData(data): any {
         details: [
           `Barcodes: ${d.transport.barcodes}`, 
           `Truck Condition: ${d.transport.truckCondition}`, 
-          `Timestamp: ${d.transport.timestamp}`]
+          `Timestamp: ${moment(d.transport.timestamp).format('MMM Do YY')}`]
       }
   if(d.washing) 
     return {
       title: "Washing Stage",
-      image: '/assets/delivery-truck.png',
+      image: '/assets/water.png',
       details: [
         `OfficerID: ${d.washing.officerID}`, 
         `Clean Yield: ${d.washing.cleanedYield}`, 
         `pH Sensor: ${d.washing.phSensorID}`, 
-        `Timestamp: ${d.washing.timestamp}`]
+        `Timestamp: ${moment(d.washing.timestamp).format('MMM Do YY')}`]
     }
   if(d.cleaning) 
     return {
       title: "Cleaning Stage",
-      image: '/assets/delivery-truck.png',
+      image: '/assets/water.png',
       details: [
         `Facility: ${d.cleaning.cleaningFacilityName}`, 
         `Barcodes: ${d.cleaning.barcodes}`, 
-        `Timestamp: ${d.cleaning.timestamp}`]
+        `Timestamp: ${moment(d.cleaning.timestamp).format('MMM Do YY')}`]
     }
   if(d.storage) 
     return {
       title: "Storage Stage",
-      image: '/assets/delivery-truck.png',
+      image: '/assets/warehouse.png',
       details: [
         `Rack No: ${d.storage.rackNo}`, 
         `Temperature: ${d.storage.temperature}`, 
@@ -115,11 +129,11 @@ function getDisplayData(data): any {
   if(d.packaging) 
     return {
       title: "Packaging Stage",
-      image: '/assets/delivery-truck.png',
+      image: '/assets/package.png',
       details: [
         `OrderID: ${d.packaging.orderID}`, 
         `Package: ${d.packaging.packageType}`, 
-        `Timestamp: ${d.packaging.timestamp}`, 
+        `Timestamp: ${moment(d.packaging.timestamp).format('MMM Do YY')}`, 
         `Barcodes: ${d.packaging.barcodes}`]
     }
   return null
