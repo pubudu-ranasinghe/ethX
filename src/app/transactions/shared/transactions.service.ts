@@ -19,10 +19,12 @@ export class TransactionsService {
   
   public getContractData(contractAddress): Promise<any> {
     return new Promise((resolve => {
-      this.http.get('http://localhost:3001/v1/blockchain/contract/'+contractAddress).subscribe(val => {
+      // this.http.get('http://api.nerdlk.com/v1/blockchain/contract/'+contractAddress).subscribe(val => {
+      //   resolve(val);
+      // })
+      this.http.get('http://api.nerdlk.com/v1/blockchain/getdata/'+contractAddress).subscribe(val => {
         resolve(val);
       })
-
     }))
   }
 
@@ -34,16 +36,7 @@ export class TransactionsService {
           equalTo: contractAddress
         }
       }).subscribe((data) => {
-        // this.transaction.hash = data[0].hash;
-        // this.transaction.nonce = data[0].nonce;
-        // this.transaction.blockHash = data[0].blockHash;
-        // this.transaction.blockNumber = data[0].blockNumber;
-        // this.transaction.from = data[0].from;
-        // this.transaction.value = data[0].value;
-        // this.transaction.gas = new BigNumber(data[0].gas);
-        // this.transaction.input = data[0].input;
         this.transaction = this.createTxnFromResponse(data[0]);
-        console.log(this.transaction)
         resolve(this.transaction);
       })
       // resolve({input: '3434', to: 34344});

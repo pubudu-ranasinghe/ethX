@@ -6,7 +6,6 @@ import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/databa
 import { Http } from '@angular/http';
 import Web3 from 'web3';
 
-
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
@@ -19,7 +18,7 @@ export class TransactionComponent implements OnInit {
   transaction: any = {};
   web3: any;
   contractAddress: string;
-
+  data: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,49 +30,72 @@ export class TransactionComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.route.paramMap
-    //   .switchMap((params: ParamMap) => this.transactionService.getTransaction(params.get('id'))
-    //   .then(function(transaction){return transaction;}))
-    //   .subscribe(transaction => {
-    //     // checkTransacion(transaction).bind(this);
-    //     transaction = transaction;
-    //     console.log(transaction);
-    //     //alert(this.transaction);
-    //   });
-
     this.route.params.subscribe((params: Params) => {
       this.contractAddress = params['id'];
-      console.log(this.contractAddress);
-      // this.db.list('transactions', {
-      //   query: {
-      //     orderByChild: 'hash',
-      //     equalTo: this.contractAddress
-      //   }
-      // }).subscribe((data) => {
-      //   this.transaction = data[0];
-      //   console.log(this.transaction);
-      // })
+
+      
       this.transacionsService.getTxnData(this.contractAddress).then(val => {
         this.transaction = val;
-        console.log(val.hash)
-        // this.transacionsService.getContractData(this.transaction.to).then(val => {
-        //   console.log(val._body)
-        //   this.transaction.value = JSON.stringify(val._body);
-        // })
+        console.log(val.input);
+          this.transacionsService.getContractData(this.contractAddress).then(val => {
+            this.data = getDisplayData(val._body);
+            console.log(this.data)
+          })
       })
     });
 
-
-    // this.http.get('http://localhost:3001/v1/blockchain/contract/0x0979c0f660216ea95e74dfa67202d7d09cf48d12').subscribe( data=> {
-    //   console.log(data);
-    // });
-    // this.http.get('http://localhost:3001/v1/blockchain/contract/0x0979c0f660216ea95e74dfa67202d7d09cf48d12').forEach(val => {
-    //   console.log(val)
-    // })
-
-
   }
 
+}
+
+function getDisplayData(data): any {
+  let d = JSON.parse(data);
+  if(d.farm) 
+    return {
+      title: d.farm.name,
+      details: [d.farm.address, d.farm.mobileNo]
+    }
+  if(d.seeding) 
+    return {
+      title: "Seeding",
+      details: [d.seeding.plotName, d.seeding.seedingDate, d.seeding.location]
+    }
+  if(d.plantation) 
+    return {
+      title: "Plantation",
+      details: [d.plantation.timestamp, d.plantation.fertilizerAmount, d.plantation.weedControl]
+    }
+  if(d.collection) 
+    return {
+      title: "Collection",
+      details: [d.collection.batchID, d.collection.storageCondition, d.collection.collectionDate, d.collection.barcode, d.collection.qualityOfHarvest]
+    }
+  if(d.transport) 
+      return {
+        title: "Transportation",
+        details: [d.transport.barcodes, d.transport.truckCondition, d.transport.timestamp]
+      }
+  if(d.washing) 
+    return {
+      title: "Washing Stage",
+      details: [d.washing.officerID, d.washing.cleanedYield, d.washing.phSensorID, d.washing.timestamp]
+    }
+  if(d.cleaning) 
+    return {
+      title: "Cleaning Stage",
+      details: [d.cleaning.cleaningFacilityName, d.cleaning.barcodes, d.cleaning.timestamp]
+    }
+  if(d.storage) 
+    return {
+      title: "Storage Stage",
+      details: [d.storage.rackNo, d.storage.temperature, d.storage.humidity, d.storage.barcodes]
+    }
+  if(d.packaging) 
+    return {
+      title: "Packaging Stage",
+      details: [d.packaging.orderID, d.packaging.packageType, d.packaging.timestamp, d.packaging.barcodes]
+    }
+  return null
 }
 
 function checkTransacion(transaction) {

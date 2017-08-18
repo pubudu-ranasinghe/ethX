@@ -8,39 +8,56 @@
 
 <section class="section" *ngIf="transaction">
   <div class="container">
-    <table class="table">
-      <tr>
-        <td>TXN Private Key</td>
-        <td class="has-text-right">{{ transaction.hash }}</td>
-      </tr>
-      <tr>
-        <td>Bock Hash</td>
-        <td class="has-text-right">{{ transaction.blockHash }}</td>
-      </tr>
-      <tr>
-        <td>Nonce</td>
-        <td class="has-text-right">{{ transaction.nonce }}</td>
-      </tr>
-      <tr>
-        <td>From</td>
-        <td class="has-text-right">{{ transaction.from }}</td>
-      </tr>
-      <tr>
-        <td>To</td>
-        <td class="has-text-right">{{ transaction.to }}</td>
-      </tr>
-      <tr>
-        <td>Value</td>
-        <td class="has-text-right">{{ transaction.value }}</td>
-      </tr>
-      <tr>
-        <td>Gas</td>
-        <td class="has-text-right">{{ transaction.gas }}</td>
-      </tr>
-      <tr>
-        <td>Input</td>
-        <td class="has-text-right">{{ transaction.input | slice:0:15 }}</td>
-      </tr>
-    </table>
+    <div class="columns">
+      <div class="column is-two-thirds">
+        <table class="table">
+          <tr>
+            <td>TXN Private Key</td>
+            <td class="has-text-right">{{ transaction.hash | slice:0:15 }}</td>
+          </tr>
+          <tr>
+            <td>Bock Hash</td>
+            <td class="has-text-right">{{ transaction.blockHash | slice:0:15 }}</td>
+          </tr>
+          <tr>
+            <td>Nonce</td>
+            <td class="has-text-right">{{ transaction.nonce }}</td>
+          </tr>
+          <tr>
+            <td>From</td>
+            <td class="has-text-right">{{ transaction.from }}</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td class="has-text-right">{{ transaction.to }}</td>
+          </tr>
+          <tr>
+            <td>Value</td>
+            <td class="has-text-right">{{ transaction.value }}</td>
+          </tr>
+          <tr>
+            <td>Gas</td>
+            <td class="has-text-right">{{ transaction.gas }}</td>
+          </tr>
+          <tr>
+            <td>Input</td>
+            <td class="has-text-right">{{ transaction.input | slice:0:15 }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="column is-one-third">
+        <div class="card" *ngIf="data">
+          <div class="card-content">
+            <div class="media-content">
+                <p class="title is-4">{{ data.title }}</p>
+            </div>
+            <div class="content">
+              <br>
+              <p *ngFor="let d of data.details">{{ d }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

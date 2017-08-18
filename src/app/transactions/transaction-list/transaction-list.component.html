@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let txn of items | async">
+    <tr *ngFor="let txn of items2 | async">
       <td>💰<a routerLink="/transaction/{{ txn.hash }}">{{ txn.hash | slice:0:15 }}</a></td>
       <!-- <td>{{ txn.blockNumber }}</td> -->
       <!-- <td>{{ txn.from | slice:0:15 }}</td> -->
