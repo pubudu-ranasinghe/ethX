@@ -54,55 +54,73 @@ function getDisplayData(data): any {
     return {
       title: d.farm.name,
       image: '/assets/delivery-truck.png',
-      details: [d.farm.address, d.farm.mobileNo]
+      details: [`address: ${d.farm.address}`, `contact: ${d.farm.mobileNo}`]
     }
   if(d.seeding) 
     return {
       title: "Seeding",
       image: '/assets/delivery-truck.png',
-      details: [d.seeding.plotName, d.seeding.seedingDate, d.seeding.location]
+      details: [`Plot: ${d.seeding.plotName}`, `Seeding Date: ${d.seeding.seedingDate}`, `Location: ${d.seeding.location}`]
     }
   if(d.plantation) 
     return {
       title: "Plantation",
       image: '/assets/delivery-truck.png',
-      details: [d.plantation.timestamp, d.plantation.fertilizerAmount, d.plantation.weedControl]
+      details: [`Plantation Date: ${d.plantation.timestamp}`, `Fertilizer Amount: ${d.plantation.fertilizerAmount}`, `Weed Control: ${d.plantation.weedControl}`]
     }
   if(d.collection) 
     return {
       title: "Collection",
       image: '/assets/delivery-truck.png',
-      details: [d.collection.batchID, d.collection.storageCondition, d.collection.collectionDate, d.collection.barcode, d.collection.qualityOfHarvest]
+      details: [`Batch ID: ${d.collection.batchID}`, `Storage Condition: ${d.collection.storageCondition}`, `Collection Date: ${d.collection.collectionDate}`, `Barcode: ${d.collection.barcode}`, `Harvest Quality: ${d.collection.qualityOfHarvest}`]
     }
   if(d.transport) 
       return {
         title: "Transportation",
         image: '/assets/delivery-truck.png',
-        details: [d.transport.barcodes, d.transport.truckCondition, d.transport.timestamp]
+        details: [
+          `Barcodes: ${d.transport.barcodes}`, 
+          `Truck Condition: ${d.transport.truckCondition}`, 
+          `Timestamp: ${d.transport.timestamp}`]
       }
   if(d.washing) 
     return {
       title: "Washing Stage",
       image: '/assets/delivery-truck.png',
-      details: [d.washing.officerID, d.washing.cleanedYield, d.washing.phSensorID, d.washing.timestamp]
+      details: [
+        `OfficerID: ${d.washing.officerID}`, 
+        `Clean Yield: ${d.washing.cleanedYield}`, 
+        `pH Sensor: ${d.washing.phSensorID}`, 
+        `Timestamp: ${d.washing.timestamp}`]
     }
   if(d.cleaning) 
     return {
       title: "Cleaning Stage",
       image: '/assets/delivery-truck.png',
-      details: [d.cleaning.cleaningFacilityName, d.cleaning.barcodes, d.cleaning.timestamp]
+      details: [
+        `Facility: ${d.cleaning.cleaningFacilityName}`, 
+        `Barcodes: ${d.cleaning.barcodes}`, 
+        `Timestamp: ${d.cleaning.timestamp}`]
     }
   if(d.storage) 
     return {
       title: "Storage Stage",
       image: '/assets/delivery-truck.png',
-      details: [d.storage.rackNo, d.storage.temperature, d.storage.humidity, d.storage.barcodes]
+      details: [
+        `Rack No: ${d.storage.rackNo}`, 
+        `Temperature: ${d.storage.temperature}`, 
+        `Humidity: ${d.storage.humidity}`, 
+        `Barcodes: ${d.storage.barcodes}`]
     }
   if(d.packaging) 
     return {
       title: "Packaging Stage",
       image: '/assets/delivery-truck.png',
-      details: [d.packaging.orderID, d.packaging.packageType, d.packaging.timestamp, d.packaging.barcodes]
+      details: [
+        `OrderID: ${d.packaging.orderID}`, 
+        `Package: ${d.packaging.packageType}`, 
+        `Timestamp: ${d.packaging.timestamp}`, 
+        `Barcodes: ${d.packaging.barcodes}`]
     }
   return null
 }

@@ -11,10 +11,8 @@
   <tbody>
     <tr *ngFor="let txn of items | async">
       <td>
-        <span *ngIf="txn.to">
-          💰
-        </span>
-        <a routerLink="/transaction/{{ txn.hash }}">{{ txn.hash | slice:0:15 }}</a></td>
+        <span *ngIf="txn.to">💰</span>
+        <a routerLink="/transaction/{{ txn.hash }}">{{ txn.hash | slice:0:5 }}</a></td>
       <!-- <td>{{ txn.blockNumber }}</td> -->
       <!-- <td>{{ txn.from | slice:0:15 }}</td> -->
       <!-- <td>{{ txn.to | slice:0:15 }}</td> -->
