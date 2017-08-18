@@ -12,7 +12,7 @@
       <div class="column is-two-thirds">
         <table class="table">
           <tr>
-            <td>TXN Private Key</td>
+            <td>TXN Public Key</td>
             <td class="has-text-right">{{ transaction.hash | slice:0:15 }}</td>
           </tr>
           <tr>
@@ -34,11 +34,11 @@
           <!-- <tr>
             <td>Value</td>
             <td class="has-text-right">{{ transaction.value }}</td>
-          </tr>
+          </tr> -->
           <tr>
             <td>Gas</td>
-            <td class="has-text-right">{{ transaction.gas }}</td>
-          </tr> -->
+            <td class="has-text-right">21000</td>
+          </tr>
           <tr>
             <td>Input</td>
             <td class="has-text-right">{{ transaction.input | slice:0:15 }}</td>
@@ -46,6 +46,10 @@
         </table>
       </div>
       <div class="column is-one-third">
+        <div class="load" *ngIf="!data">
+          Loading data from blockchain
+          <div class="spinner"></div>
+        </div>
         <div class="card" *ngIf="data">
           <div class="card-content">
             <div class="media">
