@@ -1,22 +1,24 @@
-<table class="table">
+<table class="table is-fullwidth">
   <thead>
     <tr>
       <th>Hash</th>
-      <!-- <th>Block</th> -->
       <!-- <th>From</th> -->
       <!-- <th>To</th> -->
       <th>Time</th>
+      <th>Block</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let txn of items | async">
       <td>
-        <span *ngIf="txn.to">💰</span>
-        <a routerLink="/transaction/{{ txn.hash }}">{{ txn.hash | slice:0:10 }}</a></td>
-      <!-- <td>{{ txn.blockNumber }}</td> -->
+        
+        <a routerLink="/transaction/{{ txn.hash }}">{{ txn.hash | slice:0:25 }}</a>
+        <span *ngIf="txn.to" class="icon"><i class="fa fa-bullseye"></i></span>
+      </td>
       <!-- <td>{{ txn.from | slice:0:15 }}</td> -->
       <!-- <td>{{ txn.to | slice:0:15 }}</td> -->
       <td>{{ txn.timestamp | humanTime }}</td>
+      <td>{{ txn.blockNumber }}</td>
     </tr>
   </tbody>
 </table>

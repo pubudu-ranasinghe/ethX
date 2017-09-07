@@ -19,7 +19,7 @@ export class BlockListComponent implements OnInit {
   ngOnInit() {
     this.items = this.db.list('/blocks', {
       query: {
-        limitToLast: 10,
+        limitToLast: 5,
         orderByChild: 'number'
       }
     });

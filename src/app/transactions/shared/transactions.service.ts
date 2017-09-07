@@ -22,7 +22,7 @@ export class TransactionsService {
       // this.http.get('http://api.nerdlk.com/v1/blockchain/contract/'+contractAddress).subscribe(val => {
       //   resolve(val);
       // })
-      this.http.get('http://api.nerdlk.com/v1/blockchain/getdata/'+contractAddress).subscribe(val => {
+      this.http.get('http://api2.pubuduranasinghe.com/v1/blockchain/getdata/'+contractAddress).subscribe(val => {
         resolve(val);
       })
     }))

@@ -1,4 +1,6 @@
-<nav class="navbar">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<nav class="navbar is-transparent">
   <div class="container">
 
     <div class="navbar-brand">
@@ -7,21 +9,31 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
+        
         <a routerLink="/blocks" class="navbar-item">
-          <span class="emoji">🔨</span>
           Blocks
         </a>
         <a routerLink="/transactions" class="navbar-item">
-          <span class="emoji">💎</span>
+          <span class="emoji"></span>
           Transactions
         </a>
         <a href="#" class="navbar-item">
-          <span class="emoji">🔥</span>
+          <span class="emoji"></span>
           Stats
         </a>
+        <div class="control has-addons-right navbar-item">
+            <input class="input" type="text" placeholder="Txn/Blocks/Hash">
+            <p class="control">
+                <a class="button is-primary">
+                    <span class="icon">
+                        <i class="fa fa-search"></i>
+                      </span>
+                </a>
+              </p>
+          </div>
       </div>
     </div>
-    
+
   </div>
 </nav>
 

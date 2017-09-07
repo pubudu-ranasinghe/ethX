@@ -1,10 +1,50 @@
 <div class="container">
-  <div class="tile is-ancestor">
+  <br>
+  <div class="columns">
+    <div class="column">
+      <div class="card is-one-third">
+        <div class="card-content">
+          <p class="subtitle">
+            Block
+          </p>
+          <p class="title">
+            #{{ chainHeight }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card is-one-third">
+        <div class="card-content">
+          <p class="subtitle">
+            Network
+          </p>
+          <p class="title">
+            {{ networkId }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card is-one-third">
+        <div class="card-content">
+          <p class="subtitle">
+            Hashrate
+          </p>
+          <p class="title">
+            {{ hashRate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="tile is-ancestor">
     <div class="tile is-parent">
-        <article class="tile is-child notification is-info">
-          <p class="subtitle">Block</p>
-          <p class="title">#{{ chainHeight }}</p>
-        </article>
+      <article class="tile is-child notification is-info">
+        <p class="subtitle">Block</p>
+        <p class="title">#{{ chainHeight }}</p>
+      </article>
     </div>
     <div class="tile is-parent">
       <article class="tile is-child notification is-danger">
@@ -19,19 +59,16 @@
       </article>
     </div>
   </div>
-</div>
-
-<div class="section">
+</div> -->
   <div class="container">
     <div class="columns">
-      <div class="column is-one-thirds">
-        <h1 class="title">Transactions</h1>
+      <div class="column is-half">
+        <h1 class="title"><span class="icon"><i class="fa fa-files-o"></i></span> Transactions</h1>
         <app-transaction-list></app-transaction-list>
       </div>
-      <div class="column is-two-thirds">
-        <h1 class="title">Blocks</h1>
+      <div class="column is-half">
+        <h1 class="title"><span class="icon"><i class="fa fa-th"></i></span> Blocks</h1>
         <app-block-list></app-block-list>
       </div>
     </div>
   </div>
-</div>

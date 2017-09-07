@@ -25,7 +25,7 @@ export class TransactionListComponent implements OnInit {
     // this.txns.push(new Transaction('ox',1,'e','e','e',new BigNumber(23),new BigNumber(23),12,'22')) 
     this.items = this.db.list('/transactions', {
       query: {
-        limitToLast: 10,
+        limitToLast: 11,
         orderByChild: 'timestamp'
       }
     });
@@ -35,7 +35,7 @@ export class TransactionListComponent implements OnInit {
   getSTuff() : Observable<any[]> {
     return this.db.list('/transactions', {
       query: {
-        limitToLast: 10,
+        limitToLast: 11,
         orderByChild: 'timestamp'
       }
     }).map(_items => _items.filter(i => i.to != null));

@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table is-fullwidth">
   <thead>
     <tr>
       <th>Height</th>
@@ -17,5 +17,26 @@
       <td>{{ block.size }}</td>
     </tr>
   </tbody>
-</table>
-
+</table> -->
+<div class="card" *ngFor="let block of items | async">
+  <!-- <header class="card-header">
+      
+    </header> -->
+  <div class="card-content" style="padding: 1rem;">
+    <div class="content"> 
+      <p class="subtitle ">
+        Block No: {{ block.number }}
+      </p>
+      <p class="field is-size-7" style="font-size: 0.8rem">
+        <span class="icon">
+        <i class="fa fa-clock-o"></i>
+      </span> {{ block.timestamp | humanTime }}
+        <span class="icon .has-text-right">
+          <i class="fa fa-hashtag"></i>
+        </span> {{ block.hash | slice:0:30 }}
+      </p>
+      <!-- <small>{{ block.miner | slice:0:15 }}</small>
+      <small>Block Size: {{ block.size }}</small> -->
+    </div>
+  </div>
+</div>
